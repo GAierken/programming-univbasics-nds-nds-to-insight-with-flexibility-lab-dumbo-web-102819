@@ -79,7 +79,21 @@ end
 
 def movies_with_directors_set(source)
 
+  result = {}
+    i = 0
 
+    while i < collection.length do
+      movie = collection[i]
+
+      if !result[movie[:studio]]
+        result[movie[:studio]] = movie[:worldwide_gross]
+      else
+        result[movie[:studio]] += movie[:worldwide_gross]
+      end
+      i += 1
+    end
+
+    result
 
 
 
